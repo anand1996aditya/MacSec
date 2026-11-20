@@ -161,7 +161,7 @@ src/macsec/    Python package
   runner.py                deterministic command execution
 tests/                     unit tests with a fake runner
 docs/CHECKS.md             check reference
-.github/workflows/ci.yml   macOS CI
+.github/workflows/ci.yml   portable CI (Linux unit tests; macOS runtime checks are local)
 ```
 
 ## Development

@@ -22,14 +22,23 @@ echo "4/6 check registry"
 test "$(wc -l < /tmp/mhc-checks.txt | tr -d ' ')" -ge 20
 
 echo "5/6 JSON smoke test"
-"$PYTHON" -m macsec --json >/tmp/mhc-a.json
-"$PYTHON" -m macsec --json >/tmp/mhc-b.json
-cmp /tmp/mhc-a.json /tmp/mhc-b.json
+if [ "$(uname -s)" = "Darwin" ]; then
+  "$PYTHON" -m macsec --json >/tmp/mhc-a.json
+  "$PYTHON" -m macsec --json >/tmp/mhc-b.json
+  cmp /tmp/mhc-a.json /tmp/mhc-b.json
+else
+  echo "skipped: JSON runtime scan is macOS-only (tests still cover the schema)"
+fi
 
 echo "6/6 JSON schema"
 "$PYTHON" - <<'PY'
 import json
-p = json.load(open('/tmp/mhc-a.json'))
+import platform
+try:
+    p = json.load(open('/tmp/mhc-a.json'))
+except FileNotFoundError:
+    print('skipped: no macOS report on this host')
+    raise SystemExit(0)
 assert p['schema_version'] == '1.0'
 assert p['tool']['name'] == 'macsec'
 assert p['summary']['total'] >= 20

@@ -14,5 +14,5 @@ Keep a Changelog. Versions follow semantic versioning.
 - Exit codes for CI use.
 - `install.sh`, `run.sh` and `verify.sh`.
 - Unit tests with a fake command runner.
-- macOS GitHub Actions workflow.
+- GitHub Actions workflow (portable unit tests; macOS runtime checks run locally).
 - Check reference, install guide, contributing and security policies.

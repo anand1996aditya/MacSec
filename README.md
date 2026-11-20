@@ -6,6 +6,10 @@ Run the same checks on any Mac, in the same order, and get the same result when
 the machine is in the same state. The tool does not change settings, install
 software, prompt for a password, or send data off the Mac.
 
+![MacSec terminal output](docs/screenshot.png)
+
+*Example output from a real run on macOS. Findings depend on the host.*
+
 ## Quick start
 
 ```bash

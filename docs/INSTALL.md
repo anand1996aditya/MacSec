@@ -3,7 +3,7 @@
 ## Recommended: isolated environment
 
 ```bash
-git clone <repository-url> MacSec
+git clone https://github.com/anand1996aditya/MacSec.git MacSec
 cd MacSec
 ./install.sh
 ./run.sh

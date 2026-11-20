@@ -9,7 +9,7 @@ software, prompt for a password, or send data off the Mac.
 ## Quick start
 
 ```bash
-git clone <repository-url> MacSec
+git clone https://github.com/anand1996aditya/MacSec.git MacSec
 cd MacSec
 ./install.sh
 ./run.sh
